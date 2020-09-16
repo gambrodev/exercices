@@ -3,6 +3,7 @@ package com.exercices.file.service;
 
 import com.exercices.file.pojo.Person;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -11,11 +12,9 @@ import java.util.List;
  */
 public class PersonService {
 
-    PersonFileHandler personFileHandler;
 
     public PersonService() {
-        personFileHandler = new PersonFileHandler();
-    }
+             }
 
     /**
      *
@@ -23,9 +22,18 @@ public class PersonService {
      *
      * @return
      */
-    public static List<Person> getPer5sonList() {
+    public  List<Person> getPersonsList() {
+        PersonFileHandler fileHandler = new PersonFileHandler();
+        List<String> rawDataList = fileHandler.readFromFile();
+        List<Person> personList = new ArrayList();
+
+        for(String rawData : rawDataList){
+            Person person = createPerson(rawData);
+            personList.add(person);
+        }
+
         // leggi dal persoFileHandler e crea una lista di oggetti Person
-        return null;
+        return personList;
     }
 
     /**
@@ -34,6 +42,10 @@ public class PersonService {
      * @return
      */
     private static Person createPerson(String personString) {
+        String[] DataArray = personString.split(",");
+        // creare oggetto persona
+        // usare setter per valorizzare ogggetto perrsona
+        // restituire oggetto persona
         // crea un oggetto person usando i setter dell'oggetto
         return null;
     }

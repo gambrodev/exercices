@@ -15,6 +15,7 @@ public class PersonFileHandler {
      * @return
      */
     public List<String> readFromFile() {
+        //googlelare Read text line by line java MKyong (Buffered Reader)
         //leggi dal file e metti ogni riga dentro una lista
         return null;
     }
