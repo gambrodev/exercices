@@ -43,11 +43,18 @@ public class PersonService {
      */
     private static Person createPerson(String personString) {
         String[] DataArray = personString.split(",");
-        // creare oggetto persona
+        // creare oggetto person
+        Person person = new Person;
         // usare setter per valorizzare ogggetto perrsona
+        person.setNome( DataArray [0]);
+        person.setCognome( DataArray [1]);
+        //person.setBirthday( DataArray [2]);
+        person.setAltezza( DataArray [3]);
+        person.setPeso( DataArray [4]);
+
         // restituire oggetto persona
         // crea un oggetto person usando i setter dell'oggetto
-        return null;
+        return person;
     }
 
 }
