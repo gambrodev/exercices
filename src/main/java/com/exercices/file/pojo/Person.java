@@ -58,7 +58,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Human{" +
+        return "Person{" +
                 "nome='" + nome + '\'' +
                 ", cognome='" + cognome + '\'' +
                 ", birthday=" + birthday +
