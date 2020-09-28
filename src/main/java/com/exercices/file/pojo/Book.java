@@ -1,10 +1,14 @@
 package com.exercices.file.pojo;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.List;
+
 public class Book {
     private String titolo;
     private String autore;
     private Integer anno;
     private Integer pagine;
+    private boolean disponibile;
+    private List<Person> users = new ArrayList();
 
     public String getTitolo() {
         return titolo;
@@ -38,13 +42,31 @@ public class Book {
         this.pagine = pagine;
     }
 
+    public List<Person> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<Person> users) {
+        this.users = users;
+    }
+
+    public boolean isDisponibile() {
+        return disponibile;
+    }
+
+    public void setDisponibile(boolean disponibile) {
+        this.disponibile = disponibile;
+    }
+
     @Override
     public String toString() {
-        return "Books{" +
+        return "Book{" +
                 "titolo='" + titolo + '\'' +
                 ", autore='" + autore + '\'' +
                 ", anno=" + anno +
                 ", pagine=" + pagine +
+                ", disponibile=" + disponibile +
+                ", users=" + users +
                 '}';
     }
 }

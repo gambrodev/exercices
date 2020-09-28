@@ -23,7 +23,7 @@ public class PersonService {
      *
      * @return
      */
-    public  List<Person> getPersonsList() throws IOException {
+    public static List<Person> getPersonsList() throws IOException {
         PersonFileHandler fileHandler = new PersonFileHandler();
         List<String> rawDataList = fileHandler.readFromFile();
         List<Person> personList = new ArrayList();
@@ -52,10 +52,13 @@ public class PersonService {
         //person.setBirthday( dataarray[2]);
         person.setAltezza(Integer.valueOf(dataarray[3]));
         person.setPeso(Integer.valueOf(dataarray[4]));
+        person.setCodiceFiscale(dataarray[5]);
 
         // restituire oggetto persona
         // crea un oggetto person usando i setter dell'oggetto
         return person;
     }
+
+
 
 }

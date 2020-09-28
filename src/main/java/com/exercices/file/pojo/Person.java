@@ -15,6 +15,7 @@ public class Person {
     private Date birthday;
     private Integer peso;
     private Integer altezza;
+    private String codiceFiscale;
 
     public String getNome() {
         return nome;
@@ -56,6 +57,14 @@ public class Person {
         this.altezza = altezza;
     }
 
+    public String getCodiceFiscale() {
+        return codiceFiscale;
+    }
+
+    public void setCodiceFiscale(String codiceFiscale) {
+        this.codiceFiscale = codiceFiscale;
+    }
+
     @Override
     public String toString() {
         return "Person{" +
@@ -64,6 +73,7 @@ public class Person {
                 ", birthday=" + birthday +
                 ", peso=" + peso +
                 ", altezza=" + altezza +
+                ", codiceFiscale='" + codiceFiscale + '\'' +
                 '}';
     }
 }

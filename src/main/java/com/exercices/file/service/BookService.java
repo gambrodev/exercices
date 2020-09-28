@@ -8,10 +8,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookService {
+
     public BookService() {
     }
 
-    public List<Book> getBookList() throws IOException {
+    public static List<Book> getBookList() throws IOException {
         /**
          *
          * data una lista di stringhe restituisce una lista di oggetti book
