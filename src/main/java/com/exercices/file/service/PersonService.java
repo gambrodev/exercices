@@ -3,6 +3,7 @@ package com.exercices.file.service;
 
 import com.exercices.file.pojo.Person;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class PersonService {
      *
      * @return
      */
-    public  List<Person> getPersonsList() {
+    public static List<Person> getPersonsList() throws IOException {
         PersonFileHandler fileHandler = new PersonFileHandler();
         List<String> rawDataList = fileHandler.readFromFile();
         List<Person> personList = new ArrayList();
@@ -42,19 +43,22 @@ public class PersonService {
      * @return
      */
     private static Person createPerson(String personString) {
-        String[] DataArray = personString.split(",");
+        String[] dataarray = personString.split(",");
         // creare oggetto person
-        Person person = new Person;
+        Person person = new Person();
         // usare setter per valorizzare ogggetto perrsona
-        person.setNome( DataArray [0]);
-        person.setCognome( DataArray [1]);
-        //person.setBirthday( DataArray [2]);
-        person.setAltezza( DataArray [3]);
-        person.setPeso( DataArray [4]);
+        person.setNome( dataarray[0]);
+        person.setCognome( dataarray[1]);
+        //person.setBirthday( dataarray[2]);
+        person.setAltezza(Integer.valueOf(dataarray[3]));
+        person.setPeso(Integer.valueOf(dataarray[4]));
+        person.setCodiceFiscale(dataarray[5]);
 
         // restituire oggetto persona
         // crea un oggetto person usando i setter dell'oggetto
         return person;
     }
+
+
 
 }
