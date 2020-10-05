@@ -5,6 +5,8 @@ import com.exercices.file.pojo.Book;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 public class BookService {
@@ -42,9 +44,10 @@ public class BookService {
             book.setAutore(dataarray[1]);
             book.setAnno(Integer.valueOf(dataarray[2]));
             book.setPagine(Integer.valueOf(dataarray[3]));
-
+//            book.setBorrowDate(String.valueOf(dataarray[4]));
             // restituire oggetto book
 
             return book;
         }
+
 }

@@ -1,5 +1,7 @@
 package com.exercices.file.service;
-
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.*;
 import com.exercices.LibraryException;
 import com.exercices.file.pojo.Book;
 import com.exercices.file.pojo.Person;
@@ -45,8 +47,12 @@ public class Library {
         personsList.add(person);
     }
 
-    public Book getByTitle(String title) {
-        return bookList.stream().filter(book -> title.equalsIgnoreCase(book.getTitolo())).findFirst().orElse(null);
+    public Book getByAutore(String autore) {
+        return bookList.stream().filter(book -> autore.equalsIgnoreCase(book.getAutore())).findFirst().orElse(null);
+    }
+
+    public Book getByTitolo(String titolo) {
+        return bookList.stream().filter(book -> titolo.equalsIgnoreCase(book.getTitolo())).findFirst().orElse(null);
     }
 
     public void addbook(Book book) {
@@ -54,14 +60,20 @@ public class Library {
     }
 
     public Book borrowBook(String codiceFiscale, String titolo) throws LibraryException {
-        Book book = getByTitle(titolo);
+        Book book = getByTitolo(titolo);
         Person person = getByCodicveFiscale(codiceFiscale);
         if(book == null) {
-            throw new LibraryException("book " + titolo + " not found!");
+            throw new LibraryException("titolo " + titolo + " not found!");
         }
         if(person == null) {
             throw new LibraryException("person " + person + " not found!");
         }
+        //Today's date
+        LocalDate borrowDate = LocalDate.now();
+        //return date
+        LocalDate returnDate = borrowDate.plusDays(60L);
+        book.setBorrowDate(borrowDate);
+        book.setReturnDate(returnDate);
         book.getUsers().add(person);
         book.setDisponibile(false);
 
